@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        var turno = 0;
+        var lista = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        //lista [valor 1 = "O"], [valor 2 = "X"]
+
+
+        function velha(obj, pos) {
+            var ent = document.getElementById(obj.id);
+            if (turno % 2 == 0) {
+                ent.value = "O";
+                lista[pos] = 1;
+            } else {
+                ent.value = "X";
+                lista[pos] = 2;
+            }
+
+            if (lista[0] == lista[1] && lista[1] == lista[2] && lista[0] != 0) {
+                alert("Parabens, jogador " + lista[0] + " ganhou!");
+            } else if (lista[3] == lista[4] && lista[4] == lista[5] && lista[3] != 0) {
+                alert("Parabens, jogador " + lista[3] + " ganhou!");
+            } else if (lista[6] == lista[7] && lista[7] == lista[8] && lista[6] != 0) {
+                alert("Parabens, jogador " + lista[6] + " ganhou!");
+            } else if (lista[0] == lista[3] && lista[3] == lista[6] && lista[0] != 0) {
+                alert("Parabens, jogador " + lista[0] + " ganhou!");
+            } else if (lista[1] == lista[4] && lista[4] == lista[7] && lista[1] != 0) {
+                alert("Parabens, jogador " + lista[1] + " ganhou!");
+            } else if (lista[2] == lista[5] && lista[5] == lista[8] && lista[2] != 0) {
+                alert("Parabens, jogador " + lista[2] + " ganhou!");
+            } else if (lista[0] == lista[4] && lista[4] == lista[8] && lista[0] != 0) {
+                alert("Parabens, jogador " + lista[0] + " ganhou!");
+            } else if (lista[2] == lista[4] && lista[4] == lista[6] && lista[2] != 0) {
+                alert("Parabens, jogador " + lista[2] + " ganhou!");
+            }
+            turno++;
+            document.getElementById("turnocont").innerText = turno;
+        }
+    </script>
+
+    <style type="text/css">
+        input {
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            border-radius: 10px;
+            float: left;
+        }
+        
+        input:hover {
+            background-color: cadetblue;
+        }
+        
+        input:active {
+            background-color: cornflowerblue;
+        }
+        
+        p {
+            height: 100px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body onclick="">
+    <h1 style="background-color: gray;margin: 0px;">JOGO DA VELHA ANDREY OKAMURA 213119</h1>
+    Turno: (Comeca com jogador 1)
+    <h3 id="turnocont">0</h3>
+    </br>
+    Jogador 1: O
+    </br>
+    Jogador 2: X
+    </br>
+    </br>
+    <input type="button" id="0" onclick="velha(this,0)" value="-"></button>
+    <input type="button" id="1" onclick="velha(this,1)" value="-"></button>
+    <input type="button" id="2" onclick="velha(this,2)" value="-"></button>
+
+    </p>
+    <input type="button" id="3" onclick="velha(this,3)" value="-"></button>
+    <input type="button" id="4" onclick="velha(this,4)" value="-"></button>
+    <input type="button" id="5" onclick="velha(this,5)" value="-"></button>
+
+    </p>
+    <input type="button" id="6" onclick="velha(this,6)" value="-"></button>
+    <input type="button" id="7" onclick="velha(this,7)" value="-"></button>
+    <input type="button" id="8" onclick="velha(this,8)" value="-"></button>
+</body>
+
+</html>
